@@ -107,9 +107,8 @@ app.get('/articles/:articleID', function (req, res) {
         if (result.rows.length === 0) {
             res.status(404).send('Boola... Article not found');
         } else {
-            // var articleData = result.rows[0];
-            // res.send(makeTemplate(articleData));
-            res.send("list here");
+            var articleData = result.rows[0];
+            res.send(makeTemplate(articleData));
         }
     }
   });
@@ -125,7 +124,8 @@ app.get('/articles', function (req,res) {
             if (results.rows.length === 0) {
                 res.send("<h3 alighn='center'>No articles in the DB</h3>");
             } else {
-                res.send(makeTemplateForArticleList(result.rows));
+                // res.send(makeTemplateForArticleList(result.rows));
+                res.send("list here");
             }
         }
     });
