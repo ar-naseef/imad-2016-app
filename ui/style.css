@@ -30,6 +30,7 @@ body {
 .button1 {
     background-color: #124f02;
     border: none;
+    border-radius: 12px;
     color: white;
     padding: 25px 38px;
     text-align: center;
