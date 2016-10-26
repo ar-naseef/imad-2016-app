@@ -14,7 +14,7 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-function createTemplate (data) {
+function makeTemplateForArticle (data) {
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
@@ -33,11 +33,12 @@ function createTemplate (data) {
           <div class="container">
               <div>
                   <a href="/">[Main Page]</a>
+                  <a href="/articles">[Articles list]</a>
               </div>
               <hr/>
-              <h3>
+              <h2>
                   ${heading}
-              </h3>
+              </h2>
               <div>
                   ${date.toDateString()}
               </div>
@@ -49,6 +50,44 @@ function createTemplate (data) {
     </html>
     `;
     return htmlTemplate;
+}
+
+function makeTemplateForArticleList (data) {
+    
+    var htmlTemplate = `
+            <html>
+                <head>
+                    <title>Articles</title>
+                </head>
+                <body>
+                    <div class="container">
+                        <div>
+                            <a href="/">[Main Page]</a>
+                        </div>
+                        <hr/>
+                        <h2>
+                            Well come to my blog
+                        </h2>
+                        <div class='articlesList'>
+                        <ul>
+                        `;
+                        
+    for(var i=0; i<data.length; i++) {
+        htmlTemplate = htmlTemplate + "<li><h2>" + data[i] +"</h2></li>";
+    }
+                        
+    var endhtml =   htmlTemplate +     `
+                        </ul>
+                        </div>
+                        <div>
+                            ${content}
+                        </div>
+                    </div>
+                </body>
+            </html>
+            
+        `;
+    
 }
 
 app.get('/', function (req, res) {
@@ -68,7 +107,7 @@ app.get('/articles/:articleID', function (req, res) {
             res.status(404).send('Boola... Article not found');
         } else {
             var articleData = result.rows[0];
-            res.send(createTemplate(articleData));
+            res.send(makeTemplateForArticle(articleData));
         }
     }
   });
@@ -76,7 +115,26 @@ app.get('/articles/:articleID', function (req, res) {
 
 // get the list of all available articles
 
-app.get('/articles')
+app.get('/articles', function () {
+    pool.query("SELECT heading FROM articles", function (err, result){
+        if (err) {
+            res.status(500).send(err.toString());
+        } else {
+            if (results.rows.length === 0) {
+                res.send("<h3 alighn='center'>No articles in the DB</h3>");
+            } else {
+                res.send(makeTemplateForArticleList(result.rows));
+            }
+        }
+    });
+});
+
+
+
+
+
+
+
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
