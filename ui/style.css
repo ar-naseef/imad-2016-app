@@ -28,7 +28,7 @@ body {
 }
 
 .button1 {
-    background-color: #124f02;
+    background-color: #9b0303;
     border: none;
     border-radius: 12px;
     color: white;
@@ -40,5 +40,5 @@ body {
 }
 
 .button1:hover {
-    background-color: #9bd68b;
+    background-color: #a33f3f;
 }
