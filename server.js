@@ -82,9 +82,6 @@ function makeTemplate (data) {
     htmlTemplate =   htmlTemplate + `
                         </ul>
                         </div>
-                        <div>
-                            ${content}
-                        </div>
                     </div>
                 </body>
             </html>
