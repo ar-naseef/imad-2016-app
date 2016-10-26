@@ -56,17 +56,17 @@ app.get('/', function (req, res) {
 });
 
 var pool = new Pool(config);
-app.get('/test-db', function (req, res) {
-   // make a select request
-   // return a response with the results
-   pool.query('SELECT * FROM test', function (err, result) {
-      if (err) {
-          res.status(500).send(err.toString());
-      } else {
-          res.send(JSON.stringify(result.rows));
-      }
-   });
-});
+// app.get('/test-db', function (req, res) {
+//   // make a select request
+//   // return a response with the results
+//   pool.query('SELECT * FROM test', function (err, result) {
+//       if (err) {
+//           res.status(500).send(err.toString());
+//       } else {
+//           res.send(JSON.stringify(result.rows));
+//       }
+//   });
+// });
 
 // var counter = 0;
 // app.get('/counter', function (req, res) {
@@ -84,6 +84,7 @@ app.get('/test-db', function (req, res) {
 //   res.send(JSON.stringify(names));
 // });
 
+// code for rendering articles from DB
 app.get('/articles/:articleName', function (req, res) {
   // SELECT * FROM article WHERE title = '\'; DELETE WHERE a = \'asdf'
   pool.query("select * from articles where id=2", function (err, result) {
@@ -94,7 +95,7 @@ app.get('/articles/:articleName', function (req, res) {
             res.status(404).send('Article not found');
         } else {
             var articleData = result.rows[0];
-            res.send(articleData);
+            res.send(createTemplate(articleData));
         }
     }
   });
