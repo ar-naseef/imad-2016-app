@@ -87,7 +87,7 @@ var pool = new Pool(config);
 // code for rendering articles from DB
 app.get('/articles/:articleID', function (req, res) {
   // SELECT * FROM article WHERE title = '\'; DELETE WHERE a = \'asdf'
-  pool.query("select * from articles where id= $1", [req.param.articleID], function (err, result) {
+  pool.query("select * from articles where id= $1", [req.params.articleID], function (err, result) {
     if (err) {
         res.status(500).send(err.toString());
     } else {
