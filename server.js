@@ -75,8 +75,8 @@ function makeTemplateForArticleList (data) {
     for(var i=0; i<data.length; i++) {
         htmlTemplate = htmlTemplate + "<li><h2>" + data[i] +"</h2></li>";
     }
-                        
-    var endhtml =   htmlTemplate +     `
+    
+    htmlTemplate =   htmlTemplate +     `
                         </ul>
                         </div>
                         <div>
@@ -87,7 +87,7 @@ function makeTemplateForArticleList (data) {
             </html>
             
         `;
-    
+    return htmlTemplate;
 }
 
 app.get('/', function (req, res) {
