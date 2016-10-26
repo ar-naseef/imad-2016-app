@@ -56,33 +56,6 @@ app.get('/', function (req, res) {
 });
 
 var pool = new Pool(config);
-// app.get('/test-db', function (req, res) {
-//   // make a select request
-//   // return a response with the results
-//   pool.query('SELECT * FROM test', function (err, result) {
-//       if (err) {
-//           res.status(500).send(err.toString());
-//       } else {
-//           res.send(JSON.stringify(result.rows));
-//       }
-//   });
-// });
-
-// var counter = 0;
-// app.get('/counter', function (req, res) {
-//   counter = counter + 1;
-//   res.send(counter.toString());
-// });
-
-// var names = [];
-// app.get('/submit-name', function(req, res) { // /submit-name?name=xxxx
-//   // Get the name from the request
-//   var name = req.query.name;
-  
-//   names.push(name);
-//   // JSON: Javascript Object Notation
-//   res.send(JSON.stringify(names));
-// });
 
 // code for rendering articles from DB
 app.get('/articles/:articleID', function (req, res) {
