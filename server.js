@@ -108,7 +108,7 @@ app.get('/articles/:articleID', function (req, res) {
             res.status(404).send('Boola... Article not found');
         } else {
             var articleData = result.rows[0];
-            res.send(makeTemplate(articleData));
+            res.send(makeTemplateForArticle(articleData));
         }
     }
   });
@@ -131,6 +131,7 @@ app.get('/articles', function (req,res) {
         //     }
         // }
         console.log(err);
+        console.log(result);
     });
     
      res.send("list of articles..");
