@@ -100,18 +100,20 @@ var pool = new Pool(config);
 
 // code for rendering articles from DB
 app.get('/articles/:articleID', function (req, res) {
-  pool.query("select * from articles where id= $1", [req.params.articleID], function (err, result) {
-    if (err) {
-        res.status(500).send(err.toString());
-    } else {
-        if (result.rows.length === 0) {
-            res.status(404).send('Boola... Article not found');
-        } else {
-            var articleData = result.rows[0];
-            res.send(makeTemplate(articleData));
-        }
-    }
-  });
+//   pool.query("select * from articles where id= $1", [req.params.articleID], function (err, result) {
+//     if (err) {
+//         res.status(500).send(err.toString());
+//     } else {
+//         if (result.rows.length === 0) {
+//             res.status(404).send('Boola... Article not found');
+//         } else {
+//             var articleData = result.rows[0];
+//             res.send(makeTemplate(articleData));
+//         }
+//     }
+//   });
+
+    res.send("you are here in articles");
 });
 
 // get the list of all available articles
