@@ -74,6 +74,10 @@ app.get('/articles/:articleID', function (req, res) {
   });
 });
 
+// get the list of all available articles
+
+app.get('/articles')
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
