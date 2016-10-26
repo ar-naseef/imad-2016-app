@@ -52,43 +52,45 @@ function makeTemplateForArticle (data) {
     return htmlTemplate;
 }
 
-function makeTemplateForArticleList (data) {
+// function makeTemplate (data) {
     
-    var htmlTemplate = `
-            <html>
-                <head>
-                    <title>Articles</title>
-                </head>
-                <body>
-                    <div class="container">
-                        <div>
-                            <a href="/">[Main Page]</a>
-                        </div>
-                        <hr/>
-                        <h2>
-                            Well come to my blog
-                        </h2>
-                        <div class='articlesList'>
-                        <ul>
-                        `;
+//     var htmlTemplate = `
+//             <html>
+//                 <head>
+//                     <title>Articles</title>
+//                     <meta name="viewport" content="width=device-width, initial-scale=1" />
+//                     <link href="/ui/style.css" rel="stylesheet" />
+//                 </head>
+//                 <body>
+//                     <div class="container">
+//                         <div>
+//                             <a href="/">[Main Page]</a>
+//                         </div>
+//                         <hr/>
+//                         <h2>
+//                             Well come to my blog
+//                         </h2>
+//                         <div class='articlesList'>
+//                         <ul>
+//                         `;
                         
-    for(var i=0; i<data.length; i++) {
-        htmlTemplate = htmlTemplate + "<li><h2>" + data[i] +"</h2></li>";
-    }
+//     for(var i=0; i<data.length; i++) {
+//         htmlTemplate = htmlTemplate + "<li><h2>" + data[i] +"</h2></li>";
+//     }
     
-    htmlTemplate =   htmlTemplate + `
-                        </ul>
-                        </div>
-                        <div>
-                            ${content}
-                        </div>
-                    </div>
-                </body>
-            </html>
-            
-        `;
-    return htmlTemplate;
-}
+//     htmlTemplate =   htmlTemplate + `
+//                         </ul>
+//                         </div>
+//                         <div>
+//                             ${content}
+//                         </div>
+//                     </div>
+//                 </body>
+//             </html>
+//         `;
+        
+//     return htmlTemplate;
+// }
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -105,8 +107,9 @@ app.get('/articles/:articleID', function (req, res) {
         if (result.rows.length === 0) {
             res.status(404).send('Boola... Article not found');
         } else {
-            var articleData = result.rows[0];
-            res.send(makeTemplateForArticle(articleData));
+            // var articleData = result.rows[0];
+            // res.send(makeTemplate(articleData));
+            res.send("list here");
         }
     }
   });
