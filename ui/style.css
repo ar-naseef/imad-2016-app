@@ -26,3 +26,16 @@ body {
     padding-right: 20px;
     margin: 0 auto;
 }
+
+.button1 {
+    margin: 0 auto;
+    background-color: rgb(214, 68, 58); 
+    border-radius: 18px;
+    border: 3px solid rgb(10, 7, 7); 
+    display: inline-block; cursor: pointer; 
+    color: rgb(27, 31, 27); 
+    font-family: "Courier New"; 
+    font-size: 27px; 
+    padding: 21px 45px; 
+    text-decoration: none;
+}
