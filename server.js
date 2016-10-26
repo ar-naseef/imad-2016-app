@@ -130,7 +130,7 @@ app.get('/articles', function (req,res) {
         //         res.send("list here");
         //     }
         // }
-        console.log(result);
+        console.log(err);
     });
     
      res.send("list of articles..");
