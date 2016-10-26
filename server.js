@@ -120,21 +120,19 @@ app.get('/articles/:articleID', function (req, res) {
 
 app.get('/articles', function (req,res) {
     pool.query("SELECT heading FROM articles", function (err, result){
-        // if (err) {
-        //     res.status(500).send(err.toString());
-        // } else {
-        //     if (results.rows.length === 0) {
-        //         res.send("<h3 alighn='center'>No articles in the DB</h3>");
-        //     } else {
-        //         // res.send(makeTemplateForArticleList(result.rows));
-        //         res.send("list here");
-        //     }
-        // }
-        console.log(err);
-        console.log(result);
+        if (err) {
+            res.status(500).send(err.toString());
+        } else {
+            if (results.rows.length === 0) {
+                res.send("<h3 alighn='center'>No articles in the DB</h3>");
+            } else {
+                // res.send(makeTemplateForArticleList(result.rows));
+                res.send("list here");
+            }
+        }
     });
     
-     res.send("list of articles..");
+     //res.send("list of articles..");
 });
 
 
