@@ -52,46 +52,46 @@ function makeTemplateForArticle (data) {
     return htmlTemplate;
 }
 
-function makeTemplate (data) {
-    var heading = [];
-    heading = data;
-    var htmlTemplate = `
-            <html>
-                <head>
-                    <title>Articles</title>
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <link href="/ui/style.css" rel="stylesheet" />
-                </head>
-                <body>
-                    <div class="container">
-                        <div>
-                            <a href="/">[Main Page]</a>
-                        </div>
-                        <hr/>
-                        <h2>
-                            Well come to my blog
-                        </h2>
-                        <div class='articlesList'>
-                        <ul>
-                        `;
+// function makeTemplate (data) {
+//     var heading = [];
+//     heading = data;
+//     var htmlTemplate = `
+//             <html>
+//                 <head>
+//                     <title>Articles</title>
+//                     <meta name="viewport" content="width=device-width, initial-scale=1" />
+//                     <link href="/ui/style.css" rel="stylesheet" />
+//                 </head>
+//                 <body>
+//                     <div class="container">
+//                         <div>
+//                             <a href="/">[Main Page]</a>
+//                         </div>
+//                         <hr/>
+//                         <h2>
+//                             Well come to my blog
+//                         </h2>
+//                         <div class='articlesList'>
+//                         <ul>
+//                         `;
                         
-    for(var i=0; i<data.length; i++) {
-        htmlTemplate = htmlTemplate + "<li><h2>" + data[i] +"</h2></li>";
-    }
+//     for(var i=0; i<data.length; i++) {
+//         htmlTemplate = htmlTemplate + "<li><h2>" + data[i] +"</h2></li>";
+//     }
     
-    htmlTemplate =   htmlTemplate + `
-                        </ul>
-                        </div>
-                        <div>
-                            ${content}
-                        </div>
-                    </div>
-                </body>
-            </html>
-        `;
+//     htmlTemplate =   htmlTemplate + `
+//                         </ul>
+//                         </div>
+//                         <div>
+//                             ${content}
+//                         </div>
+//                     </div>
+//                 </body>
+//             </html>
+//         `;
         
-    return htmlTemplate;
-}
+//     return htmlTemplate;
+// }
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -127,7 +127,7 @@ app.get('/articles', function (req,res) {
             if (result.rows.length === 0) {
                 res.status(404).send('Boola... No articles in DB');
             } else {
-                res.send(makeTemplate(result.rows));
+                res.send(result.rows);
             }
         }
     });
