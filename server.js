@@ -119,7 +119,7 @@ app.get('/articles/:articleID', function (req, res) {
 // get the list of all available articles
 
 app.get('/articles', function (req,res) {
-    pool.query("SELECT heading FROM articles", function (err, result){
+    pool.query('select heading from articles', function (err, result){
         if (err) {
             res.status(500).send(err.toString());
         } else {
