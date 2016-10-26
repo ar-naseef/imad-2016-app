@@ -28,9 +28,16 @@ body {
 }
 
 .button1 {
-    
+    background-color: #124f02;
+    border: none;
+    color: white;
+    padding: 25px 38px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
 }
 
 .button1:hover {
-    
+    background-color: #9bd68b;
 }
