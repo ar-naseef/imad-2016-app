@@ -53,8 +53,8 @@ function makeTemplateForArticle (data) {
 }
 
 function makeTemplate (data) {
-    var heading = [];
-    heading = data;
+    var headings = [];
+    headings = data;
     var htmlTemplate = `
             <html>
                 <head>
@@ -76,7 +76,7 @@ function makeTemplate (data) {
                         `;
                         
     for(var i=0; i<data.length; i++) {
-        htmlTemplate = htmlTemplate + "<li><h2>" + data[i]['heading'] +"</h2></li>";
+        htmlTemplate = htmlTemplate + "<li><h2>" + headings[i]['heading'] +"</h2></li>";
     }
     
     htmlTemplate =   htmlTemplate + `
