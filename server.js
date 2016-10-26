@@ -117,13 +117,14 @@ app.get('/articles/:articleID', function (req, res) {
 // get the list of all available articles
 
 app.get('/articles', function (req,res) {
-    pool.query('select heading from articles', function (err, result){
+    pool.query('select heading,id from articles', function (err, result){
         if (err) {
             res.status(500).send(err.toString());
         } else {
             if (result.rows.length === 0) {
                 res.status(404).send('Boola... No articles in DB');
             } else {
+                console.log(result);
                 res.send(makeTemplate(result.rows));
             }
         }
