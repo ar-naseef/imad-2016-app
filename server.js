@@ -75,8 +75,8 @@ function makeTemplate (data) {
                         <ul>
                         `;
                         
-    for(var i=0; i<data.length; i++) {
-        htmlTemplate = htmlTemplate + "<li><h2>" + headings[i]['heading'] +"</h2></li>";
+    for(var i=0; i<data.length; i++) { //href="/articles/id"
+        htmlTemplate = htmlTemplate + "<li><h4><a href=\"/articles/" + headings[i]['id'] + "\" >" + headings[i]['heading'] +"</a></h4></li>";
     }
     
     htmlTemplate =   htmlTemplate + `
@@ -124,7 +124,6 @@ app.get('/articles', function (req,res) {
             if (result.rows.length === 0) {
                 res.status(404).send('Boola... No articles in DB');
             } else {
-                console.log("result");
                 res.send(makeTemplate(result.rows));
             }
         }
