@@ -133,7 +133,7 @@ app.get('/articles', function (req,res) {
         console.log(result);
     });
     
-    // res.send("list of articles..");
+     res.send("list of articles..");
 });
 
 
