@@ -124,7 +124,7 @@ app.get('/articles', function (req,res) {
             if (result.rows.length === 0) {
                 res.status(404).send('Boola... No articles in DB');
             } else {
-                console.log(result);
+                console.log("result");
                 res.send(makeTemplate(result.rows));
             }
         }
