@@ -75,7 +75,7 @@ function makeTemplate (data) {
                         <ul>
                         `;
                         
-    for(var i=0; i<data.length; i++) { //href="/articles/id"
+    for(var i=0; i<data.length; i++) {
         htmlTemplate = htmlTemplate + "<li><h4><a href=\"/articles/" + headings[i]['id'] + "\" >" + headings[i]['heading'] +"</a></h4></li>";
     }
     
