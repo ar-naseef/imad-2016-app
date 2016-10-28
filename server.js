@@ -132,13 +132,6 @@ app.get('/articles', function (req,res) {
      //res.send("list of articles..");
 });
 
-
-
-
-
-
-
-
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
