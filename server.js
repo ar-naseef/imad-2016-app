@@ -20,6 +20,7 @@ function makeTemplateForArticle (data) {
     var heading = data.heading;
     var content = data.content;
     
+    //template for single article 
     var htmlTemplate = `
     <html>
       <head>
@@ -52,6 +53,7 @@ function makeTemplateForArticle (data) {
     return htmlTemplate;
 }
 
+// template for list all articles
 function makeTemplate (data) {
     var headings = [];
     headings = data;
