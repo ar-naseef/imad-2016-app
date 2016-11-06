@@ -68,7 +68,8 @@ function makeTemplate (data) {
                             list-style-type: none;
                         }
                         li {
-                            height: 60px;
+                            height: 100px;
+                            border-radius: 30px;
                             background-color: #aaaaaa;
                         }
                         ul a {
