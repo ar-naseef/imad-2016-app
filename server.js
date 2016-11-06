@@ -75,6 +75,7 @@ function makeTemplate (data) {
                         
                         li h2 {
                             text-align: center;
+                            line-height: 30px;
                         }
                         
                         ul a {
