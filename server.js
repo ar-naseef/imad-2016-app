@@ -73,6 +73,7 @@ function makeTemplate (data) {
                             background-color: #aaaaaa;
                         }
                         ul a {
+                            padding: auto;
                             text-decoration: none; 
                             color: #777777;
                         }
