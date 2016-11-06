@@ -77,7 +77,7 @@ function makeTemplate (data) {
                         }
                         ul a:hover {
                             text-decoration: none; 
-                            color: #999999;
+                            color: #555555;
                         }
                     </style>
                 </head>
