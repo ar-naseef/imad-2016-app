@@ -68,10 +68,11 @@ function makeTemplate (data) {
                             list-style-type: none;
                         }
                         li {
-                            height: 40px;
+                            height: 60px;
                             background-color: #aaaaaa;
                         }
                         ul a {
+                            text-decoration: none; 
                             color: #777777;
                         }
                         ul a:hover {
