@@ -73,9 +73,12 @@ function makeTemplate (data) {
                             background-color: #afb5bf;
                         }
                         
+                        li h2 {
+                            text-align: center;
+                        }
+                        
                         ul a {
                             font-size: 30px;
-                            text-align: center;
                             text-decoration: none; 
                             color: #777777;
                         }
