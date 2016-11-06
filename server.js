@@ -149,7 +149,7 @@ app.get('/ui/main.js', function (req, res) {
 });
 
 app.get('/ui/madi.png', function (req, res) {
-    res.send('https://pbs.twimg.com/profile_images/791290598934196225/vZxbVNIr.jpg'));
+    res.send('https://pbs.twimg.com/profile_images/791290598934196225/vZxbVNIr.jpg');
 });
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
