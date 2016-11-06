@@ -69,7 +69,7 @@ function makeTemplate (data) {
                         }
                         li {
                             height: 40px;
-                            background-color: #222222;
+                            background-color: #aaaaaa;
                         }
                     </style>
                 </head>
