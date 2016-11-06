@@ -70,7 +70,7 @@ function makeTemplate (data) {
                         li {
                             height: 100px;
                             border-radius: 30px;
-                            background-color: #b8cdef;
+                            background-color: #afb5bf;
                         }
                         
                         ul a {
