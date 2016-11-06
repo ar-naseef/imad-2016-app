@@ -63,6 +63,15 @@ function makeTemplate (data) {
                     <title>Articles</title>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link href="/ui/style.css" rel="stylesheet" />
+                    <style>
+                        ul {
+                            list-style-type: none;
+                        }
+                        li {
+                            height: 40px;
+                            background-color: #666666;
+                        }
+                    </style>
                 </head>
                 <body>
                     <div class="container">
@@ -78,7 +87,7 @@ function makeTemplate (data) {
                         `;
                         
     for(var i=0; i<data.length; i++) {
-        htmlTemplate = htmlTemplate + "<li><h4><a href=\"/articles/" + headings[i]['id'] + "\" >" + headings[i]['heading'] +"</a></h4></li>";
+        htmlTemplate = htmlTemplate + "<li><h2><a href=\"/articles/" + headings[i]['id'] + "\" >" + headings[i]['heading'] +"</a></h2></li>";
     }
     
     htmlTemplate =   htmlTemplate + `
