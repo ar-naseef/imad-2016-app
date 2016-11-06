@@ -75,7 +75,7 @@ function makeTemplate (data) {
                         
                         ul a {
                             font-size: 30px;
-                            padding: auto;
+                            vertical-align:middle;
                             text-decoration: none; 
                             color: #777777;
                         }
