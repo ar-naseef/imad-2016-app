@@ -155,7 +155,7 @@ app.get('/articles', function (req,res) {
                 res.status(404).send('Boola... No articles in DB');
             } else {
                 var art_list = []
-                res.render('ui/my_blog');
+                res.render('ui/my_blog.html');
                 // res.send(makeTemplate(result.rows));
             }
         }
