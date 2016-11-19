@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
+// var ejs = require('ejs');
 
 var config = {
     user: 'ar-naseef',
@@ -125,22 +126,22 @@ app.get('/', function (req, res) {
 
 var pool = new Pool(config);
 
-// code for rendering articles from DB
+// code for rendering an article from DB
 app.get('/articles/:articleID', function (req, res) {
-  pool.query("select * from articles where id= $1", [req.params.articleID], function (err, result) {
-    if (err) {
-        res.status(500).send(err.toString());
-    } else {
-        if (result.rows.length === 0) {
-            res.status(404).send('Boola... Article not found');
+    // query to DB
+    pool.query("select * from articles where id= $1", [req.params.articleID], function (err, result) {
+        if (err) {
+            res.status(500).send(err.toString());
         } else {
-            var articleData = result.rows[0];
-            res.send(makeTemplateForArticle(articleData));
+            if (result.rows.length === 0) {
+                res.status(404).send('Boola... Article not found');
+            } else {
+                var articleData = result.rows[0];
+                // html for the article
+                res.send(makeTemplateForArticle(articleData));
+            }
         }
-    }
-  });
-
-    //res.send("you are here in articles");
+    });
 });
 
 // get the list of all available articles
@@ -153,7 +154,9 @@ app.get('/articles', function (req,res) {
             if (result.rows.length === 0) {
                 res.status(404).send('Boola... No articles in DB');
             } else {
-                res.send(makeTemplate(result.rows));
+                var art_list = []
+                res.render('ui/my_blog');
+                // res.send(makeTemplate(result.rows));
             }
         }
     });
@@ -161,9 +164,9 @@ app.get('/articles', function (req,res) {
      //res.send("list of articles..");
 });
 
-app.get('/my_blog', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'my_blog.html'));
-});
+// app.get('/my_blog', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'ui', 'my_blog.html'));
+// });
 
 app.get('/ui/style.css', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'style.css'));
